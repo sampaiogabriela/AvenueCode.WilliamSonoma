@@ -1,0 +1,38 @@
+Feature:
+  1- As a customer
+  I want to go to a product page and add the product to the cart
+  I should be able to see this product added to cart on shopping cart page
+  2 -As a customer
+  I want to search for a product and open it's quick look overlay
+  I should be able to see the exact same clicked product on the quick look overlay
+
+  #1 Feature 1
+  Scenario: Add a product to a cart and go to shopping cart page # features/challenge.feature:10
+    Given I am on WilliamsSonomaWebPage                          # features/step_definitions/challenge.rb:2
+    When I select Cookware                                       # features/step_definitions/challenge.rb:6
+    And I select Ovenware                                        # features/step_definitions/challenge.rb:10
+    And I select one product                                     # features/step_definitions/challenge.rb:14
+    And I click on Add to card                                   # features/step_definitions/challenge.rb:18
+    And I click on Checkout                                      # features/step_definitions/challenge.rb:22
+      unable to locate element, using {:id=>"btn-checkout", :tag_name=>"button"} (Watir::Exception::UnknownObjectException)
+      (eval):1:in `process_watir_call'
+      ./features/support/pageobject/williams_sonoma_web_page.rb:48:in `checkoutproduct'
+      ./features/step_definitions/challenge.rb:23:in `/^I click on Checkout$/'
+      features/challenge.feature:16:in `And I click on Checkout'
+    Then I should see the shopping cart page                     # features/step_definitions/challenge.rb:26
+
+  #2 Feature 2
+  Scenario: Search for a product and see on quick look overlay # features/challenge.feature:20
+    Given I am on WilliamsSonomaWebPage                        # features/step_definitions/challenge.rb:2
+    When I search for oven mitts                               # features/step_definitions/challenge.rb:30
+    And I click on Quick look                                  # features/step_definitions/challenge.rb:34
+      unable to locate element, using {:xpath=>"//*[@id=\"content\"]/div[2]/ul/li[1]/div[1]/a[2]/span", :tag_name=>"button"} (Watir::Exception::UnknownObjectException)
+      (eval):1:in `process_watir_call'
+      ./features/support/pageobject/williams_sonoma_web_page.rb:64:in `quicklookclick'
+      ./features/step_definitions/challenge.rb:35:in `/^I click on Quick look$/'
+      features/challenge.feature:23:in `And I click on Quick look'
+    Then I should see the same product                         # features/step_definitions/challenge.rb:38
+
+Failing Scenarios:
+cucumber features/challenge.feature:10 # Scenario: Add a product to a cart and go to shopping cart page
+cucumber features/challenge.feature:20 # Scenario: Search for a product and see on quick look overlay
