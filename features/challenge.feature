@@ -22,3 +22,11 @@ Given I am on WilliamsSonomaWebPage
 When I search for oven mitts
 And I click on Quick look
 Then I should see the same product
+
+#3 Feature 3
+Scenario: Search for a product and open the window for tweet this project
+Given I am on WilliamsSonomaWebPage
+When I search for juicers
+And I select one product
+And I click on Tweet
+Then I should see the the widow to tweet the product
