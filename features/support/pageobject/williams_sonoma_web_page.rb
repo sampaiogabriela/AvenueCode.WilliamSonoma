@@ -69,4 +69,15 @@ def compare
 	sleep(3)
 	self.producttocompare1 == self.producttonewlink
 end
+
+/*def searchforproduct product
+	self.search = product
+	sleep(3)
+	@browser.send_keys :enter
+end
+
+def tweet 
+	sleep(3)
+	self.producttocompare1 == self.producttonewlink
+end*/
 end
